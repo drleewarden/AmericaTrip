@@ -13,25 +13,29 @@
 
 get_header(); ?>
 
-<div id="main-content" class="main-content" ng-controller="mainBodyControl">
+<div id="main-content" class="main-content" ng-controller="mainBodyControl" ng-init="init()">
 
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
+		<div id="map" >
+			<iframe style="margin: 0; padding: 0;" src="https://mapsengine.google.com/map/embed?mid=z1eO2PL6en0Y.k1glAy2owPTg" height="500" width="100%" frameborder="0"></iframe>
+		</div>
 		 
 
-		<div >
+		<div class="isotopeX">
 			
 			<!-- <img ng-src="{{ post.attachments[1].url }}"/> -->
 			
-			<div id="container" ng-repeat="post in posts" class="kindling {{x.class}}">
-			  <div class="item">
-			  	  test:{{post.title_plain}}
-				  <img ng-src="{{ post.attachments[0].images.full.url }}"/>
+			<div  ng-repeat="post in posts" ng-class='{huge:$first}' class="item element-item col-xs-12 col-sm-6 col-md-6 col-lg-4  {{post.tags[0].slug}}">
+			  <div class=" inner" ng-mouseover="postHover()">
+			  	  <!-- <h3>{{post.title_plain}}</h3> -->
+				  <a href="{{post.url}}" ><div class="post-img" style="background:url('{{ post.attachments[0].images.full.url }}') center"></div><!-- <img ng-src="{{ post.attachments[0].images.full.url }}"/> --></a>
+				  
 			  </div>
 			</div>
-			</div>
-		
+		</div>
+
 
 			<?php
 				// Start the Loop.
@@ -60,9 +64,8 @@ get_header(); ?>
 	
 	<?php get_sidebar( 'content' ); ?>
 </div><!-- #main-content -->
-<script src="<?php echo get_template_directory_uri(); ?>/js/angular.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.isotope.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/angular-isotope.js"></script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/js/isotope.pkgd.min.js"></script>	
 <script src="<?php echo get_template_directory_uri(); ?>/js/controller.js"></script>
 
 

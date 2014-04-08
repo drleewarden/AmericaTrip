@@ -35,6 +35,12 @@
 if ( ! isset( $content_width ) ) {
 	$content_width = 474;
 }
+if ( function_exists( 'add_image_size' ) ) {
+
+    // set gallery thumbnail image's size to 250 x 250 pixels
+    add_image_size( 'gallery-item img', 250, 250, true ); //change to false to disable hard cropping
+
+}
 
 /**
  * Twenty Fourteen only works in WordPress 3.6 or later.

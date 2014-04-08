@@ -3564,7 +3564,7 @@ a.post-thumbnail:hover {
 
 	.site-content {
 		margin-right: 29.04761904%;
-		margin-left: 182px;
+		margin-left: 0px;
 	}
 
 	.site-content .entry-header {
@@ -3585,7 +3585,7 @@ a.post-thumbnail:hover {
 		content: "";
 		display: block;
 		height: 100%;
-		height: 200px;
+		
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -3599,7 +3599,7 @@ a.post-thumbnail:hover {
 		clear: none;
 		float: right;
 		margin: 0 0 0 -100%;
-		max-height: 200px;
+		
 		overflow: auto;
 		width: 122px;
 	}
@@ -3675,6 +3675,8 @@ a.post-thumbnail:hover {
 		top: 14px;
 		vertical-align: text-bottom;
 	}
+	#content {
+ 
 
 	.footer-sidebar .widget,
 	.primary-sidebar .widget {
@@ -3917,9 +3919,7 @@ a.post-thumbnail:hover {
 		margin-left: 0;
 	}
 
-	.site:before {
-		width: 222px;
-	}
+	
 
 	.search-box-wrapper,
 	.featured-content {
@@ -3928,6 +3928,7 @@ a.post-thumbnail:hover {
 
 	#secondary {
 		width: 162px;
+		z-index: 5;
 	}
 
 	.secondary-navigation,
