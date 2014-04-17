@@ -117,10 +117,24 @@ if ( 2 > $paged ) {
 					} // end current_user_can() check
 				}
 				?>
+
 			</div><!-- #primary.c8 -->
 			<?php if ( 1 < $paged )
 				get_sidebar(); ?>
 		</div>
+	</div>
+	<div id="isotope" >
+	    <div  ng-repeat="post in posts" ng-class='{huge:$first}' class="item element-item col-xs-12 col-sm-6 col-md-6 col-lg-4  {{post.tags[0].slug}}">
+          <div class=" inner" ng-mouseover="postHover()">
+              <!-- <h3>{{post.title_plain}}</h3> -->
+              <a href="{{post.url}}" >
+                <div class="post-img" style="background:url('{{ post.attachments[0].images.full.url }}') center no-repeat">
+                    <a href="{{post.url}}" class="btn btn-default btn-lg" >{{post.title_plain}}</a>
+                </div>
+              </a>
+
+          </div>
+        </div>
 	</div>
 
 <?php get_footer(); ?>

@@ -558,6 +558,7 @@ pre, code {
 
 #content code {
   font-size: 12px;
+  display: none;
 }
 
 #content pre {

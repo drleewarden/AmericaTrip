@@ -1536,8 +1536,7 @@ a.post-thumbnail:hover {
 
 .post-navigation,
 .image-navigation {
-	margin: 24px auto 48px;
-	max-width: 474px;
+	
 	padding: 0 10px;
 }
 
@@ -3205,8 +3204,7 @@ a.post-thumbnail:hover {
 	.site-content .entry-content,
 	.site-content .entry-summary,
 	.site-content footer.entry-meta {
-		padding-right: 30px;
-		padding-left: 30px;
+		padding: 20px 65px;
 	}
 
 	.singular .site-content .hentry.has-post-thumbnail {
@@ -3219,7 +3217,7 @@ a.post-thumbnail:hover {
 
 	.full-width .site-content .has-post-thumbnail .entry-header,
 	.full-width.singular .site-content .hentry.has-post-thumbnail {
-		margin-top: -48px;
+		margin-top: 44px;
 	}
 
 	#secondary,
@@ -3583,7 +3581,7 @@ a.post-thumbnail:hover {
 	.site:before {
 		background-color: rgba(0,0,0,0.8);
 		content: "";
-		display: block;
+		display: display;
 		height: 100%;
 		
 		position: absolute;
@@ -4010,6 +4008,7 @@ a.post-thumbnail:hover {
 	.full-width .site-content .entry-summary,
 	.full-width .site-content footer.entry-meta {
 		margin-right: auto;
+		padding: 30px 65px;
 	}
 }
 

@@ -22,26 +22,27 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<link rel="profile" href="http://gmpg.org/xfn/11">
+<!-- 	<link rel="profile" href="http://gmpg.org/xfn/11"> -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/sass-bootstrap.css"/>
+	<link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css"/>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css"/>
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/base.css"/>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/trip.css"/>
+	
 
-  
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/angular.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.js"></script>
-	
+	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.0.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/angular.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/bootstrap.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/jquery.js"></script>
+
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> ng-app="americaTrip">
+<body <?php body_class(); ?> ng-app="americaTrip" ng-controller="mainBodyControl" ng-init="init()">
 <div id="page" class="hfeed site">
 	<?php if ( get_header_image() ) : ?>
 	<div id="site-header">
@@ -53,7 +54,8 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-main">
-		<button>map</button>
+		<button ng-click="toggleCustom()">view map</button>
+		<button id="showMenu">Menu</button>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
 			<div class="search-toggle">
