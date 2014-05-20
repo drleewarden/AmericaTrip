@@ -168,9 +168,9 @@ function bavotasan_add_js() {
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
 
-	wp_enqueue_script( 'bootstrap', BAVOTASAN_THEME_URL .'/library/js/bootstrap.min.js', array( 'jquery' ), '3.0.3', true );
-	wp_enqueue_script( 'fillsize', BAVOTASAN_THEME_URL .'/library/js/fillsize.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'arctext', BAVOTASAN_THEME_URL .'/library/js/jquery.arctext.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'bootstrap', BAVOTASAN_THEME_URL .'/library/js/vendor/bootstrap.min.js', array( 'jquery' ), '3.0.3', true );
+	wp_enqueue_script( 'fillsize', BAVOTASAN_THEME_URL .'/library/js/vendor/fillsize.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'arctext', BAVOTASAN_THEME_URL .'/library/js/vendor/jquery.arctext.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'theme_js', BAVOTASAN_THEME_URL .'/library/js/theme.js', array( 'bootstrap' ), '', true );
 
 	wp_localize_script( 'theme_js', 'theme_js_vars', array(

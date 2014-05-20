@@ -19,7 +19,9 @@
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<!--<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/demos.css"/>-->
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/base.css"/>
+
 
 <!--[if IE]><script src="<?php echo BAVOTASAN_THEME_URL; ?>/library/js/html5.js"></script><![endif]-->
 <?php wp_head(); ?>
@@ -27,15 +29,21 @@
 <script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/angular.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/bootstrap.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/jquery.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/isotope.pkgd.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/isotope.pkgd.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/jquery.cookie.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/jquery.touchSwipe.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/carouFredSel.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/library/js/services/services.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/library/js/directive/dir-cookie.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/library/js/controller.js"></script>
+
 </head>
 <?php
 $bavotasan_theme_options = bavotasan_theme_options();
 $space_class = '';
 ?>
-<body <?php body_class(); ?> ng-app="americaTrip" ng-controller="mainBodyControl" ng-init="init()">
-
+<body <?php body_class(); ?> ng-app="americaTrip" dir-cookie ng-controller="mainBodyControl" ng-init="init()">
+<?php include_once("analyticstracking.php") ?>
 	<div id="page">
 
 		<header id="header">

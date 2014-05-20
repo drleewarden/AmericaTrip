@@ -18,7 +18,8 @@ if ( 2 > $paged ) {
 	// Display jumbo headline is the option is set
 	if ( ! empty( $bavotasan_theme_options['jumbo_headline_title'] ) ) {
 	?>
-	<div class="home-top">
+
+	<div class="home-top"  >
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -48,8 +49,8 @@ if ( 2 > $paged ) {
 }
 ?>
 	<div class="container from-the-blog">
-		<div class="row">
-			<div id="primary" <?php if ( 2 > $paged ) { ?>class="col-md-12 hfeed"<?php } else { bavotasan_primary_attr(); }; ?>>
+		<div class="row filter-box">
+			<div id="primary " <?php if ( 2 > $paged ) { ?>class="col-md-12 hfeed"<?php } else { bavotasan_primary_attr(); }; ?>>
                 <?php
 				if ( have_posts() ) {
 					if ( 'page' != get_option('show_on_front') && 2 > $paged ) {
@@ -61,7 +62,7 @@ if ( 2 > $paged ) {
 
 					while ( have_posts() ) : the_post();
 						if ( 'page' == get_option('show_on_front') ) { ?>
-							<article id="post-<?php the_ID(); ?>" <?php post_class( ); ?>>
+							<article id="test post-<?php the_ID(); ?>" <?php post_class( ); ?>>
 							    <div class="entry-content description clearfix">
 								    <?php the_content( __( 'Read more', 'arcade' ) ); ?>
 							    </div><!-- .entry-content -->
@@ -121,17 +122,29 @@ if ( 2 > $paged ) {
 			</div><!-- #primary.c8 -->
 			<?php if ( 1 < $paged )
 				get_sidebar(); ?>
+				<div id="posts-filter">
+				    <a href="#posts-filter" id="featured" class="btn btn-default btn-lg" data-filter=".featured">Featured</a>
+				   <a href="#posts-filter" id="featured" class="btn btn-default btn-lg"  data-filter=".seen">Un read</a>
+                  <a href="#posts-filter" class="btn btn-default btn-lg"  data-filter=".item">All</a>
+                </div>
+
+                	<br><br>
 		</div>
 	</div>
+
+
 	<div id="isotope" >
-	    <div  ng-repeat="post in posts" ng-class='{huge:$first}' class="item element-item col-xs-12 col-sm-6 col-md-6 col-lg-4  {{post.tags[0].slug}}">
+	    <div  ng-repeat="post in posts" ng-class='{huge:$first}' class="seen {{post.tags[0].title}} id-{{post.$$hashKey}} item element-item col-xs-12 col-sm-6 col-md-6 col-lg-4 seen">
           <div class=" inner" ng-mouseover="postHover()">
               <!-- <h3>{{post.title_plain}}</h3> -->
-              <a href="{{post.url}}" >
-                <div class="post-img" style="background:url('{{ post.attachments[0].images.full.url }}') center no-repeat">
-                    <a href="{{post.url}}" class="btn btn-default btn-lg" >{{post.title_plain}}</a>
+
+              <div class="post-holder" href="{{post.url}}" >
+               <a href="{{post.url}}" ng-click="blogClicked(post.title_plain, 'id-'+post.$$hashKey)" class="id-{{post.$$hashKey}} btn btn-default btn-lg" >{{post.title_plain}}</a>
+                <div class="post-img" style="background-color: coral">
+                <img src="{{ post.attachments[0].images.full.url }}" height="300"/>
+
                 </div>
-              </a>
+              </div>
 
           </div>
         </div>
