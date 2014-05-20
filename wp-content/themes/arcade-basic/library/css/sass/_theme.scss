@@ -2,18 +2,60 @@ $col_text: #282828;
 $col_highlight: #5cbde0;
 $font_main_text: Open Sans, sans-serif;
 $font_headers: Raleway, sans-serif;
+$tabletMode: 786px;
+
+.pull-right{
+  display: none;
+}
+
 body{
   margin: 0;
   padding: 0;
 }
+
+// ************ home page posts ************** //
+
+.post-img{
+  width: 100%;
+  height: 218px;
+  background-size: 100% !important;
+}
+
+.huge .post-img{
+   height: 436px;
+  background-size: 230% !important;
+}
+
+.post-holder{
+  a{
+    background-color: transparent !important;
+    color: white !important;
+    margin: 30px;
+    position: absolute;
+    z-index: 99;
+
+  }
+  .post-img{
+    z-index: 1;
+    &:hover{
+      opacity: .3;
+    }
+  }
+}
+
+// home main img
 img.header-img{
-  -webkit-filter: blur(5px) brightness(0.5);;
-  -moz-filter: blur(5px) brightness(0.5);;
-  -o-filter: blur(5px) brightness(0.5);;
-  -ms-filter: blur(5px) brightness(0.5);;
+  -webkit-filter: blur(5px) brightness(0.5);
+  -moz-filter: blur(5px) brightness(0.5);
+  -o-filter: blur(5px) brightness(0.5);
+  -ms-filter: blur(5px) brightness(0.5);
 }
 .only-on-home.basic #site-title a {
-  font-size: 80px !important;
+  @media only screen and (min-width: $tabletMode)  {
+    font-size: 80px !important;
+  }
+  font-size: 30px !important;
+
 }
 .element-item {
   height: 233px;
@@ -23,21 +65,42 @@ img.header-img{
   margin-top: -48px;
   padding: 0 65px;
 }
-.comments-area {
-  margin: 48px 65px !important;
-  max-width: 474px;
-  padding: 0 10px;
-}
+
 
 
 #secondary{
   background-color: rgba(0,0,0,0.8) !important;
 }
+/* filters */
+.container {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto;
+}
+.filter-box{
+  background-color: salmon;
+  .btn-default {
+    color: #333333;
+    background-color: salmon;
+    border-color: black;
+  }
+  h2{
+    color: white;
+    font-size: 8em;
+    text-align: center;
+  }
+}
+#posts-filter{
+  width: 273px;
+
+  margin: 0  auto;
+
+}
 /* isotope items */
 .item {
 
   background: black ;
-  height: 219px;
+  height: 218px;
   padding: 0 !important;
   float: left;
   z-index: 2;
@@ -50,30 +113,142 @@ img.header-img{
   z-index: 1;
 }
 .huge{
-  height: 438px;
+  height: 436px;
 }
+
 .huge img{
   width:900px;
 
-
 }
-
-.post-img{
-  width: 100%;
-  height: 274px;
-  background-size: 100% !important;
+.size-large{
+  float: left;
 }
-.huge .post-img{
-  height: 600px;
-  background-size: 230% !important;
-}
-
-.post-img{
-  a{
-    background-color: transparent !important;
-    color: white !important;
-    width: 170px;
-    margin: 0 30%;
-    text-align: center;
+.basic{
+  .entry-title {
+    font-size: 52px !important;
+    margin: 30px 0;
   }
+}
+// ************ Blog Posts ************** //
+
+body.single-post{
+  .wp-caption {
+    background: none;
+    border: 0px solid #e6e6e6;
+    max-width: 100%;
+    padding: 0px;
+    text-align: center;
+
+    .wp-caption-text{
+      display:  none;
+    }
+  }
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto;
+    @media only screen and (min-width: $tabletMode)  {
+      margin: 0 30px;
+
+    }
+
+  }
+
+  #mainpopup{
+    cursor: url(../library/images/minus.png), auto;
+    img{
+      width: 100%;
+    }
+  }
+  .comment-form-email, .comment-form-author, .comment-form-url{
+    float: left;
+    margin: 10px 20px 30px 0;
+  }
+  .image-anchor{
+    width: 500px;
+    float: left;
+    margin: 0 0px 0 0;
+    position: relative;
+  }
+  .comment-form-comment{
+    float: none;
+    clear: both;
+  }
+
+  .title-card-wrapper {
+    overflow: hidden;
+    display: none;
+  }
+  .comments-area {
+    margin: 0 !important;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .entry-content {
+
+
+    .gall{
+      position: inherit;
+      left: 0;
+      overflow: hidden;
+      height: 400px;
+      min-height: 285px;
+
+      .image-anchor{
+        //width: $screen-xs;
+        width: 270px !important;
+//        @include breakpoint(tablet){
+//          width: 420px !important;
+//        }
+
+        @media only screen and (min-width: $tabletMode)  {
+          width: 420px !important;
+        }
+
+      img{
+        cursor: url(../library/images/slide.png), auto;
+        position: static;
+        width: auto;
+        height:  auto;
+      }
+
+      .template{
+        position: absolute;
+        opacity: 0;
+        top: 110px;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        font-size: 22px;
+        letter-spacing: 1px;
+        display: inline;
+        font-style: italic;
+        z-index: 99;
+        color: black;
+        font-family: Raleway, sans-serif;
+      }
+
+      .enlargeBtn{
+        display: inline-block;
+        background: url("../library/images/mag.png") no-repeat;
+        background-size: 50px 50px;
+        width: 50px;
+        height: 50px;
+        margin: -10px 10px 0;
+      }
+
+    }
+
+  }
+
+}
+}
+
+
+
+.metal{
+  width:100px;
+  float: left;
+  background-color: yellow;
 }
